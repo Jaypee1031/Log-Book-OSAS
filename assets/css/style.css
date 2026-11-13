@@ -1,0 +1,219 @@
+/* QSU Guidance Office Logbook Management System (OSAS) */
+/* Themed identically to the QSU Admission Portal */
+
+:root {
+  --primary-color: #006633;
+  --primary-light: #008844;
+  --primary-dark: #004422;
+  --secondary-color: #28a745;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --white: #ffffff;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: var(--light-color);
+  color: var(--gray-800);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* QSU Navbar */
+.navbar-qsu {
+  background-color: var(--primary-color) !important;
+}
+
+/* Scrollbar refinement with QSU Green accent */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f0fdf4;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-light);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* Sidebar transition */
+#sidebar {
+  transition: transform 0.25s ease-in-out, width 0.25s ease-in-out;
+}
+
+@media (max-width: 1023px) {
+  #sidebar.hidden-mobile {
+    transform: translateX(-100%);
+  }
+}
+
+/* Cards styled like Admission Portal */
+.card-admission {
+  border: none;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-admission:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 102, 51, 0.12) !important;
+}
+
+/* Buttons */
+.btn-qsu {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: 1px solid var(--primary-color);
+  transition: all 0.2s ease-in-out;
+}
+.btn-qsu:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+  color: #ffffff;
+}
+
+.btn-outline-qsu {
+  color: var(--primary-color);
+  border: 1.5px solid var(--primary-color);
+  background-color: transparent;
+  transition: all 0.2s ease;
+}
+.btn-outline-qsu:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+/* Paper Logbook Styling for Print */
+@media print {
+  @page {
+    size: landscape;
+    margin: 10mm 8mm 10mm 8mm;
+  }
+  
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+  }
+
+  .no-print,
+  #sidebar,
+  #top-navbar,
+  .action-bar,
+  .btn,
+  .pagination,
+  .filter-bar,
+  .modal,
+  .toast-container {
+    display: none !important;
+  }
+
+  .main-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .paper-logbook-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-top: 10px !important;
+    page-break-inside: auto;
+  }
+
+  .paper-logbook-table tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  .paper-logbook-table th,
+  .paper-logbook-table td {
+    border: 1.5px solid #000000 !important;
+    padding: 6px 8px !important;
+    font-size: 9.5pt !important;
+    color: #000000 !important;
+  }
+
+  .paper-logbook-table th {
+    background-color: #f3f4f6 !important;
+    font-weight: bold !important;
+    text-transform: uppercase;
+    text-align: center !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-header {
+    text-align: center;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 8px;
+  }
+
+  .print-header h1 {
+    font-size: 14pt;
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+
+  .print-header h2 {
+    font-size: 12pt;
+    margin: 2px 0;
+    font-weight: 600;
+  }
+
+  .print-header h3 {
+    font-size: 10pt;
+    margin: 2px 0;
+    font-weight: normal;
+  }
+
+  .print-signatures {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    page-break-inside: avoid;
+  }
+}
+
+/* Modal styling */
+.modal-backdrop-custom {
+  background-color: rgba(0, 68, 34, 0.7);
+  backdrop-filter: blur(3px);
+}
+
+/* Pill badge animations */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  line-height: 1;
+}
